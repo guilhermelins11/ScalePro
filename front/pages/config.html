@@ -1,0 +1,50 @@
+<!-- config.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configurações</title>
+  <link rel="stylesheet" href="css/painel.css" />
+  <link rel="shortcut icon" href="images/logoBlack.png" type="image/x-icon"/>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="menu-item logo">
+      <img src="images/logo.png" alt="Logo" class="logo-img" />
+    </div>
+    <a href="geral.html" class="menu-item">
+      <img src="images/icone-geral.png" alt="Geral" />
+      <span>Geral</span>
+    </a>
+    <a href="estoque.html" class="menu-item">
+      <img src="images/icone-estoque.png" alt="Estoque" />
+      <span>Estoque</span>
+    </a>
+    <a href="config.html" class="menu-item active">
+      <img src="images/icone-config.png" alt="Configurações" />
+      <span>Config.</span>
+    </a>
+    <a href="index.html" class="menu-item logout">
+      <img src="images/icone-sair.png" alt="Sair" />
+      <span>Sair</span>
+    </a>
+  </div>
+
+  <main class="main-content">
+    <h1>Configurações da Conta</h1>
+    <form class="config-form">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome completo" />
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" />
+
+      <label for="telefone">Telefone</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" />
+
+      <button type="submit">Salvar Alterações</button>
+    </form>
+  </main>
+</body>
+</html>
