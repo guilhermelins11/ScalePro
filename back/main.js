@@ -43,3 +43,48 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileMenu.classList.toggle('active')
     );
   });
+
+// On Scroll Animation
+document.addEventListener('DOMContentLoaded', () => {
+  const myObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+      }
+    });
+  });
+
+  const elements = document.querySelectorAll(
+    '.hero, .sobrenos, .testimonials.bg-dark, .pricing, .faq.bg-light, .footer.bg-black, .all'
+  );
+
+  elements.forEach((element) => myObserver.observe(element));
+
+  
+  const footerCard = document.querySelector('.footer .card');
+  if (footerCard) {
+    myObserver.observe(footerCard); 
+  }
+
+  const cards = document.querySelectorAll('.testimonials-grid .card, .pricing-grid .card');
+  const cardsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      const card = entry.target;
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          card.classList.add('animate');
+        }, index * 300); 
+      } else {
+        card.classList.remove('animate');
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  cards.forEach(card => cardsObserver.observe(card));
+});
+
+
