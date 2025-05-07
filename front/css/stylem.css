@@ -37,6 +37,7 @@ img {
   background-repeat: no-repeat;
   width: 100%; 
   color: #f2eded;
+  opacity: 0;
 }
 
 .btn-e {
@@ -90,6 +91,7 @@ img {
 /* Hero */
 .hero {
   margin-bottom: 50px;
+  opacity: 0;
 }
 
 .hero .container {
@@ -113,6 +115,7 @@ img {
   background-color: #f4f4f4;
   color: #000;
   align-items: center;
+  opacity: 0;
 }
 
 .sobrenos .container {
@@ -167,6 +170,7 @@ img {
 /* Testemunhas */
 .testimonials {
   padding: 40px 0;
+  opacity: 0;
 }
 
 .testimonials .testimonials-heading {
@@ -188,7 +192,8 @@ img {
 /* Pricing */
 
 .pricing {
-  color: black !important
+  color: black !important;
+  opacity: 0;
   
 }
 .pricing .pricing-grid {
@@ -228,6 +233,7 @@ img {
 /* FAQ */
 .faq {
   padding: 40px 0;
+  opacity: 0;
 }
 
 .faq .faq-group {
@@ -289,6 +295,7 @@ img {
 /* Footer */
 .footer {
   padding: 40px 0;
+  opacity: 0;
 }
 
 .footer h4 {
@@ -347,6 +354,14 @@ img {
   color: #000;
   border-radius: 10px;
   padding: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+.card.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Buttons */
@@ -565,3 +580,24 @@ img {
     font-size: 2rem;
   }
 }
+
+.show {
+  opacity: 1;
+  transition: all 2.5s;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
