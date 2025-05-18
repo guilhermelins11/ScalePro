@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../Style/interno.css" />
+  <link rel="shortcut icon" href="../images/logoBlack.png"type="image/x-icon"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="sidebar">
+    <a href="index.html">
+      <div class="menu-item logo">
+        <img src="../images/logo.png" alt="Logo" class="logo-img" />
+      </div>
+    </a>
+    <div class="menu-item active" onclick="showSection('geral')">
+      <i class="fas fa-chart-pie"></i><span>Geral</span>
+    </div>
+    <div class="menu-item" onclick="showSection('estoque')">
+      <i class="fas fa-boxes"></i><span>Estoque</span>
+    </div>
+  
+    <a href="index.html">
+      <div class="menu-item">
+        <i class="fas fa-sign-out-alt"></i><span>Sair</span>
+      </div>
+    </a>
+  </div>
+  
+  <div class="main-content">
+    
+    <section id="geral" class="section active">
+      <h1>Resumo Geral</h1>
+      <div class="dashboard">
+        <div class="card"><h3>Distribuição de Categorias</h3><div class="grafico-placeholder">[Gráfico Pizza]</div></div>
+        <div class="card"><h3>Desempenho Financeiro</h3><div class="grafico-placeholder">[Gráfico de Barras]</div></div>
+        <div class="card"><h3>Ações Recentes</h3><div class="grafico-placeholder">[Gráfico de Linha]</div></div>
+        <div class="card"><h3>Usuários Ativos</h3><div class="grafico-placeholder">[Gráfico de Barras Horizontais]</div></div>
+      </div>
+    </section>
+
+    <section id="estoque" class="section">
+      <div class="header">
+        <h1>Estoque</h1>
+        <button onclick="showSection('cadastro')">+ Novo Produto</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Categoria</th><th>Tipo</th><th>Valor</th><th>Gasto</th><th>Receita</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Novos produtos serão adicionados aqui -->
+        </tbody>
+      </table>
+    </section>
+    
+    <section id="cadastro" class="section">
+      <h1>Cadastrar Produto</h1>
+      <form id="formProduto">
+        <label for="categoriaInput">Categoria:</label>
+        <select id="categoriaInput" required onchange="atualizarTipos(this.value)">
+          <option value="">-- Selecione uma categoria --</option>
+          <option value="Moveis">Móveis</option>
+          <option value="Serviços">Serviços</option>
+          <option value="Eletro">Eletro</option>
+          <option value="Celulares e Telefonia">Celulares e Telefonia</option>
+          <option value="Áudio">Áudio</option>
+          <option value="Moda e Beleza">Moda e Beleza</option>
+          <option value="Animais de estimação">Animais de estimação</option>
+        </select>
+    
+        <label for="tipoSelect">Tipo:</label>
+        <select id="tipoSelect" required>
+          <option value="">-- Selecione uma categoria primeiro --</option>
+        </select>
+    
+        <label for="responsavel">Responsável:</label>
+        <input type="text" id="responsavel" required />
+        <label for="valor">Valor:</label>
+        <input type="number" id="valor" required step="0.01" />
+        <label for="gasto">Gasto:</label>
+        <input type="number" id="gasto" required step="0.01" />
+        <button type="submit">Salvar Produto</button>
+      </form>
+      <div class="voltar">
+        <a href="#" onclick="showSection('estoque')">← Voltar para lista</a>
+      </div>
+    </section>
+
+    <section id="sair" class="section">
+      <h1>Você saiu do sistema.</h1>
+    </section>
+
+  </div>
+
+  <script src="../Scripts/main.js" defer></script>
+
+</body>
+</html>
+
