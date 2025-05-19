@@ -50,7 +50,7 @@ Sistema de gerenciamento e cadastro de microempresas e microempreendedores, foca
 ## 📫 Contato
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](http://linkedin.com/in/antony-lins-354b91290)  
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:gui.gleyce@gmail.com)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:contato.antonyguilherme@gmail.com)
 
 ---
 
