@@ -52,7 +52,7 @@
         </div>
       </div>
     </nav>
-  </container>
+  </div>
 
 
 
@@ -62,10 +62,10 @@
         <div class="hero-content">
           <h1 class="hero-heading text-xxl">
             Conheça a gente!
-          </h1>
+          </h1><br>
           <p class="hero-text">
-            Organize, colabore e veja o progresso da sua microempresa no mesmo lugar
-          </p>
+            <strong>Organize, colabore e veja o progresso da sua microempresa no mesmo lugar.</strong>
+          </p><br>
           <div class="hero-buttons">
             <a href="#" class="btn">Comece agora</a>
           </div>
@@ -104,10 +104,10 @@
           <div class="card">
             <p>
               “Nosso negócio viu um aumento significativo na produtividade
-              desde que começamos a usar o <strong>NOMEDAEMPRESA</strong>.”
+              desde que começamos a usar o <strong>ScalePro</strong>.”
             </p>
             <p><strong>Katherine Smith</strong></p>
-            <p>AlgumLugar</p>
+            <p>Apple</p>
           </div>
     
           <div class="card">
@@ -118,7 +118,7 @@
               compromissos e acompanhar o progresso, tudo em um só lugar.”
             </p>
             <p><strong>Johnathan Lee</strong></p>
-            <p>Red Bolt</p>
+            <p>Red Bull</p>
           </div>
     
           <div class="card">
@@ -177,8 +177,8 @@ dados ao vivo e métricas de desempenho.
             <div class="pricing-card-header">
               <h4 class="pricing-card-heading text-xl">Premium</h4>
               <p class="pricing-card-subheading">
-                Keep track of your contacts, gain valuable insights, analyze
-                live data and performance metrics.
+                Acompanhe seus contatos, obtenha insights valiosos, analise
+dados em tempo real e métricas de desempenho.
               </p>
               <p class="pricing-card-price">
                 <span class="text-xl">$10</span> /mês
@@ -205,25 +205,25 @@ adicionados na finalização da compra.
     <!-- FAQ -->
     <section class="faq bg-light">
       <div class="container-sm">
-        <h3 class="text-xl text-center">Frequently Asked Questions</h3>
+        <h3 class="text-xl text-center">Perguntas frequentes</h3>
         <ul class="faq-menu">
-          <li class="active">All</li>
-          <li>Getting Started</li>
-          <li>Pricing</li>
+          <li class="active">Todos</li>
+          <li>Começando</li>
+          <li>Preços</li>
         </ul>
         <div class="faq-content">
           <div class="faq-group">
             <div class="faq-group-header">
               <h4 class="text-md">
-                How does the contact management feature help me keep track of
-                clients and partners?
+                Como o recurso de gerenciamento de contatos me ajuda a monitorar
+clientes e parceiros?
               </h4>
               <i class="fas fa-minus"></i>
             </div>
             <div class="faq-group-body open">
               <p>
-                Keep track of your contacts, gain valuable insights, analyse
-                live data and performance metrics.
+                Acompanhe seus contatos, obtenha insights valiosos, analise
+dados em tempo real e métricas de desempenho.
               </p>
             </div>
           </div>
@@ -231,16 +231,16 @@ adicionados na finalização da compra.
           <div class="faq-group">
             <div class="faq-group-header">
               <h4 class="text-md">
-                Can I customize the dashboards and reporting feature to display
-                the metrics that are most important to my business?
+                Posso personalizar os painéis e o recurso de relatórios para exibir
+as métricas mais importantes para o meu negócio?
               </h4>
               <i class="fas fa-plus"></i>
             </div>
             <div class="faq-group-body">
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad
-                culpa enim blanditiis rem ipsum aliquam, unde iste fugit
-                praesentium eos?
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Anúncio
+culpa enim blanditiosi rem ipsum aliquam, unde iste fugit
+presentium eos?
               </p>
             </div>
           </div>
@@ -248,8 +248,8 @@ adicionados na finalização da compra.
           <div class="faq-group">
             <div class="faq-group-header">
               <h4 class="text-md">
-                How does the task management feature help me delegate tasks to
-                my team and track progress?
+                Como o recurso de gerenciamento de tarefas me ajuda a delegar tarefas
+à minha equipe e monitorar o progresso?
               </h4>
               <i class="fas fa-plus"></i>
             </div>
@@ -265,7 +265,7 @@ adicionados na finalização da compra.
           <div class="faq-group">
             <div class="faq-group-header">
               <h4 class="text-md">
-                Can I collaborate with my team in real-time using all tools?
+                Posso colaborar com minha equipe em tempo real usando todas as ferramentas?
               </h4>
               <i class="fas fa-plus"></i>
             </div>
@@ -280,7 +280,7 @@ adicionados na finalização da compra.
 
           <div class="faq-group">
             <div class="faq-group-header">
-              <h4 class="text-md">Is the app available on all devices?</h4>
+              <h4 class="text-md">O aplicativo está disponível em todos os dispositivos?</h4>
               <i class="fas fa-plus"></i>
             </div>
             <div class="faq-group-body">
@@ -295,8 +295,8 @@ adicionados na finalização da compra.
           <div class="faq-group">
             <div class="faq-group-header">
               <h4 class="text-md">
-                How does the app help me stay compliant when working with
-                freelancers and contractors?
+                Como o aplicativo me ajuda a manter a conformidade ao trabalhar com
+freelancers e contratados?
               </h4>
               <i class="fas fa-plus"></i>
             </div>
@@ -355,6 +355,28 @@ o próximo nível.
         </div>
       </div>
     </footer>
+
+<script>
+  document.querySelectorAll('.faq-group-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const group = header.parentElement;
+      const body = group.querySelector('.faq-group-body');
+      const icon = header.querySelector('i');
+
+      // Alterna visibilidade
+      body.classList.toggle('open');
+
+      // Alterna ícone
+      if (body.classList.contains('open')) {
+        icon.classList.remove('fa-plus');
+        icon.classList.add('fa-minus');
+      } else {
+        icon.classList.remove('fa-minus');
+        icon.classList.add('fa-plus');
+      }
+    });
+  });
+</script>
 
     <script src="../Scripts/main.js"></script>
   </body>
