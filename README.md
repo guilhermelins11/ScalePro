@@ -1,4 +1,4 @@
-# ScalePro
+# 📊 ScalePro
 
 Sistema de gerenciamento e cadastro de microempresas e microempreendedores, focado em simplificar o controle administrativo e financeiro.
 
