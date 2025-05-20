@@ -32,7 +32,7 @@ Sistema de gerenciamento e cadastro de microempresas e microempreendedores, foca
 
  1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/ScalePro.git
+   git clone https://github.com/guilhermelins11/ScalePro.git
    cd ScalePro
   ```
 2. Instale as dependencias:
@@ -43,9 +43,9 @@ Sistema de gerenciamento e cadastro de microempresas e microempreendedores, foca
    ```
 3. Rode o projeto no terminal:
    ```bash
-   node index.js
+   node server.js
    ```
-*Certifique-se de que o arquivo principal se chama index.js. Se tiver outro nome, substitua-o no comando acima.*
+*Certifique-se de que o arquivo principal se chama server.js. Se tiver outro nome, substitua-o no comando acima.*
 
 ## 📫 Contato
 
