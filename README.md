@@ -1,57 +1,115 @@
 # 📊 ScalePro
 
-Sistema de gerenciamento e cadastro de microempresas e microempreendedores, focado em simplificar o controle administrativo e financeiro.
+Sistema web para cadastro de microempresas (MEI), gerenciamento de produtos e serviços, com sistema de autenticação de usuários. Desenvolvido como projeto de portfólio; este README reúne todas as instruções e informações para executar e entender o sistema, com linguagem acessível.
 
-## 🚀 Funcionalidades
+## 🚀 Visão geral — o que o sistema faz
 
-- Cadastro de usuários e empresas
-- Login com autenticação
-- Página inicial com apresentação de serviços
-- Painel administrativo
-- Integração com banco de dados (MySQL)
-- Operações CRUD completas
+- Cadastro de empresas/usuários
+- Lista e gerenciamento de itens (produtos) e serviços
+- Registro e login de usuários com autenticação segura (JWT)
+- Interface básica para painel interno (`geral.html`) protegida por autenticação
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠 Tecnologias utilizadas
 
-- ![NodeJS](https://img.shields.io/badge/Node.js-6DA55F?style=flay-square&logo=node.js&logoColor=white) + ![Express.js](https://img.shields.io/badge/Express.js-%23404d59.svg?style=flat-square&logo=express&logoColor=%2361DAFB)
-- ![MySQL](https://img.shields.io/badge/MySQL-4479A1.svg?style=flat-square&logo=mysql&logoColor=white)
-- ![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=flat-square&logo=html5&logoColor=white) + ![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=flat-square&logo=css3&logoColor=white) + ![JavaScript](https://img.shields.io/badge/Javascript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E)
+- Node.js + Express.js (servidor web)
+- PostgreSQL (banco de dados)
+- JWT (`jsonwebtoken`) para autenticação básica
+- `bcryptjs` para hash de senhas
+- `cookie-parser`, `express-session`, `connect-pg-simple` (suporte a sessão em Postgres)
+- HTML, CSS e JavaScript no frontend
 
-## Instruções de Intalação
-### Pré Requisitos
-```bash
-  Node.js ≥ 14.17.0  
-  Verifique com:
-  node --version.
+## O que foi implementado (resumo simples)
 
-  Git ≥ 2.0.0
-  Verifique com:
-  git --version.
+- Tabelas no banco:
+  - `cadastro` — informações de empresas/razão social
+  - `itens` — produtos
+  - `servicos` — serviços
+  - `usuarios` — conta de usuário com `username`, `password_hash`, `role` (admin/user)
+- Registro e login de usuários. Senhas não são salvas em texto, são armazenadas como hash seguro.
+- Geração de token JWT no login/registro; token enviado ao navegador em cookie HttpOnly.
+- Proteção básica: `geral.html` (página interna) só abre para quem tem token válido.
+- Página de registro: `Pages/register.html`.
+- Botão de logout no menu interno (aponta para `/login/logout`).
+
+## Estrutura principal de arquivos (onde procurar cada coisa)
+
+- Frontend (páginas): `Pages/` — `entrar.html`, `register.html`, `cadastro.html`, `interno.html` (painel)
+- Backend (servidor): `Scripts/` — `app.js`, `controllers/`, `Routes/`, `models/`
+- Scripts SQL para criar tabelas: `db/` — `create_schema_*.sql` e `README_DB.md`
+- Documentação final deste projeto: `README_FINAL.md` (igual ao conteúdo que você está vendo aqui)
+
+## Instalação e execução (passo a passo, simples)
+
+1) Instale o Node.js (versão LTS). Verifique com:
+```powershell
+node --version
 ```
-## Instruções de uso
 
- 1. Clone o repositório:
-   ```bash
-   git clone https://github.com/guilhermelins11/ScalePro.git
-   cd ScalePro
-  ```
-2. Instale as dependencias:
-   ```bash
-   npm install node
-               express
-               mysql2
-   ```
-3. Rode o projeto no terminal:
-   ```bash
-   node server.js
-   ```
-*Certifique-se de que o arquivo principal se chama server.js. Se tiver outro nome, substitua-o no comando acima.*
+2) Abra o PowerShell na pasta do projeto (onde está `package.json`).
 
-## 📫 Contato
+3) Instale dependências:
+```powershell
+npm install
+```
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](http://linkedin.com/in/antony-lins-354b91290)  
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:contato.antonyguilherme@gmail.com)
+4) Defina variáveis de ambiente (substitua por valores fortes):
+```powershell
+$env:PGPASSWORD = 'SUA_SENHA_POSTGRES'
+$env:JWT_SECRET = 'SUA_CHAVE_JWT_MUITO_FORTE'
+$env:SESSION_SECRET = 'SUA_CHAVE_DE_SESSAO'
+```
+
+5) Criar bancos e aplicar tabelas (use os scripts em `db/`):
+```powershell
+# criar bancos (executar uma vez)
+psql -U postgres -h localhost -p 5432 -d postgres -c "CREATE DATABASE cadastro_mei;"
+psql -U postgres -h localhost -p 5432 -d postgres -c "CREATE DATABASE produtos;"
+
+# aplicar schemas
+psql -U postgres -h localhost -p 5432 -d cadastro_mei -f db/create_schema_cadastro_mei.sql
+psql -U postgres -h localhost -p 5432 -d cadastro_mei -f db/create_schema_usuarios.sql
+psql -U postgres -h localhost -p 5432 -d cadastro_mei -f db/create_schema_session.sql
+psql -U postgres -h localhost -p 5432 -d produtos -f db/create_schema_produtos.sql
+```
+
+6) Iniciar o servidor (substitua se você usa outro comando):
+```powershell
+node Scripts/index.js
+```
+
+7) Testar no navegador:
+- `http://localhost:PORT/register.html` — criar conta
+- `http://localhost:PORT/entrar.html` — fazer login
+- Após login você será redirecionado para `geral.html` se o token for válido
+- Para sair: clicar em "Sair" no menu (chama `/login/logout`)
+
+## Explicação simples do funcionamento
+
+- Quando alguém se registra, criamos um registro no banco e salvamos uma versão segura da senha (hash).
+- Quando alguém faz login e a senha confere, o servidor emite um token (JWT). Esse token prova que a pessoa está autenticada.
+- O navegador guarda o token num cookie (arquivo temporário) e envia esse cookie ao servidor a cada requisição, permitindo acessar páginas protegidas.
+
+## Segurança — o que já foi feito e recomendações
+
+- Já feito:
+  - Senhas armazenadas como hash (`bcryptjs`)
+  - Token JWT usado para proteger páginas internas
+
+- Recomendado antes de publicar no portfólio:
+  - Usar HTTPS (TLS/SSL)
+  - Guardar `JWT_SECRET` e `SESSION_SECRET` em variáveis de ambiente seguras (não subir no Git)
+  - Ativar cookie `secure` em produção (`cookie: { secure: true }`)
+  - Implementar proteção por função (`isAdmin`) para rotas administrativas
+
+## Contato
+
+- LinkedIn: http://linkedin.com/in/antony-lins-354b91290
+- Email: contato.antonyguilherme@gmail.com
 
 ---
 
-> Projeto desenvolvido por Antony Guilherme para fins acadêmicos e de portfólio.
+Se quiser, posso agora:
+- adicionar middleware `isAdmin` para rotas administrativas, ou
+- criar um README mais curto e visual para exibir no seu portfólio (guia do avaliador).
+
+Obrigado — diga qual opção prefere que eu execute a seguir.

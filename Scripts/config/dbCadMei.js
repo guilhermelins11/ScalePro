@@ -1,18 +1,20 @@
-const mysql = require('mysql2');
+const { Pool } = require('pg');
 
-const dbCadMei = mysql.createConnection({
+const dbCadMei = new Pool({
     host: 'localhost',
-    user: 'root',
+    user: 'postgres',
     password: '123456',
-    database: 'cadastro_mei'
+    database: 'cadastro_mei',
+    port: 5432
 });
 
-dbCadMei.connect((err) => {
+dbCadMei.connect((err, client, release) => {
     if (err) {
-        console.error('Erro ao Conectar ao MySQL:', err)
+        console.error('Erro ao Conectar ao PostgreSQL:', err)
     } else {
-        console.log('Conectado ao MySQL!')
-    };
+        console.log('Conectado ao PostgreSQL!');
+        if (release) release();
+    }
 });
 
 module.exports = dbCadMei;

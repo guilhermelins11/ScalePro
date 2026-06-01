@@ -1,16 +1,21 @@
 {
   "dependencies": {
     "cors": "^2.8.5",
-    "expres": "^0.0.5",
-    "express": "^5.1.0",
-    "mysql": "^2.18.1",
-    "mysql2": "^3.14.0",
-    "node": "^23.11.0"
+    "express": "^5.2.1",
+    "pg": "^8.21.0",
+    "bcryptjs": "^2.4.3",
+    "express-session": "^1.17.3",
+    "connect-pg-simple": "^8.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "cookie-parser": "^1.4.6"
   },
-  "name": "empresala",
+  
+  "name": "scalepro",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "Scripts/server.js",
   "scripts": {
+    "start": "node Scripts/server.js",
+    "dev": "nodemon Scripts/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
