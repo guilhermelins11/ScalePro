@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registrar</title>
+  <link rel="stylesheet" href="/css/entrar.css" />
+</head>
+<body>
+  <div class="page">
+    <form method="POST" action="/auth/register" class="formLogin">
+      <h1>Registrar</h1>
+      <label for="username">Usuário (razão social ou e-mail)</label>
+      <input type="text" name="username" id="username" required />
+
+      <label for="senha">Senha</label>
+      <input type="password" name="senha" id="senha" required />
+
+      <label for="role">Tipo</label>
+      <select name="role" id="role">
+        <option value="user" selected>Usuário</option>
+        <option value="admin">Administrador</option>
+      </select>
+
+      <input type="submit" value="Registrar" class="btn" />
+      <p><a href="entrar.html">Já tem conta? Acesse</a></p>
+    </form>
+  </div>
+</body>
+</html>

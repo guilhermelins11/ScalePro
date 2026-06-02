@@ -12,11 +12,11 @@
   
   "name": "scalepro",
   "version": "1.0.0",
-  "main": "Scripts/server.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node Scripts/server.js",
-    "dev": "nodemon Scripts/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "node tests/test_endpoints.js && node tests/test_advanced.js"
   },
   "keywords": [],
   "author": "",
