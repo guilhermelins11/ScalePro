@@ -1,4 +1,4 @@
-# 📊 ScalePro
+# 📊  Escala
 
 Sistema web para cadastro de microempresas (MEI), gerenciamento de produtos e serviços, com sistema de autenticação de usuários. Desenvolvido como projeto de portfólio; este README reúne todas as instruções e informações para executar e entender o sistema, com linguagem acessível.
 
