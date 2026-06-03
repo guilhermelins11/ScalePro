@@ -32,7 +32,7 @@ app.use(session({
 
 // Protege o acesso à página /geral.html
 app.use((req, res, next) => {
-    if (req.path === '/geral.html') {
+    if (req.path === '../public/html/geral.html') {
         // Verifica JWT no cookie ou no header Authorization
         const token = req.cookies && req.cookies.token ? req.cookies.token : (req.headers.authorization && req.headers.authorization.split(' ')[1]);
         if (token) {
