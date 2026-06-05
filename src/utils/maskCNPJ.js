@@ -1,3 +1,5 @@
+// Máscara para CNPJ.
+
 document.addEventListener("DOMContentLoaded", function() {
     const cnpjInput = document.getElementById("CNPJ");
 
